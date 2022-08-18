@@ -2,6 +2,7 @@ import {
   extendTheme,
   StyleFunctionProps,
   withDefaultColorScheme,
+  withDefaultVariant,
   type ThemeConfig,
 } from '@chakra-ui/react';
 import { mode } from '@chakra-ui/theme-tools';
@@ -24,7 +25,7 @@ const theme = extendTheme(
         body: {
           fontFamily: 'body',
           color: mode('gray.800', 'whiteAlpha.900')(props),
-          bg: mode('white', 'gray.800')(props),
+          bg: mode('gray.100', 'gray.800')(props),
           lineHeight: 'base',
         },
       }),
@@ -47,9 +48,53 @@ const theme = extendTheme(
         900: '#78350f',
       },
     },
+    semanticTokens: {
+      colors: {
+        foreground: {
+          default: 'white',
+          _dark: 'gray.900',
+        },
+        fgSecondary: {
+          default: 'blackAlpha.50',
+          _dark: 'whiteAlpha.100',
+        },
+        fgTertiary: {
+          default: 'blackAlpha.200',
+          _dark: 'whiteAlpha.50',
+        },
+        border: {
+          default: 'gray.200',
+          _dark: 'gray.600',
+        },
+        hoverColor: {
+          default: 'current',
+          _dark: 'current',
+        },
+        hoverBg: {
+          default: 'blackAlpha.50',
+          _dark: 'whiteAlpha.100',
+        },
+        activeColor: {
+          default: 'brand.500',
+          _dark: 'brand.200',
+        },
+        activeBg: {
+          default: 'brand.100',
+          _dark: 'whiteAlpha.300',
+        },
+        scrollBg: {
+          default: 'blackAlpha.100',
+          _dark: 'whiteAlpha.100',
+        },
+      },
+    },
   },
   withDefaultColorScheme({
-    colorScheme: 'gray',
+    colorScheme: 'brand',
+  }),
+  withDefaultVariant({
+    variant: 'ghost',
+    components: ['Button'],
   })
 );
 

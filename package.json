@@ -1,6 +1,6 @@
 {
   "name": "noice-admin-chakra",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": true,
   "dependencies": {
     "@chakra-ui/react": "^2.2.8",

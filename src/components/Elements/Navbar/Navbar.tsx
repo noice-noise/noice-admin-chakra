@@ -8,6 +8,7 @@ import {
   Button,
   Flex,
   Icon,
+  Spacer,
   Text,
   Tooltip,
 } from '@chakra-ui/react';
@@ -38,41 +39,42 @@ export const Navbar = () => {
       direction="column"
       position="fixed"
       bg="foreground"
-      p={0}
       m={0}
-      top={0}
+      p={0}
+      mt="headerHeight"
+      pb="headerHeight" // need to because of top margin, to allow accurate overflowY boundary
+      top={-1.3}
       left={0}
-      h="100vh"
+      zIndex="navbar"
+      h="100%"
       overflowY="auto"
       overflowX="hidden"
-      w="52"
+      w="navbarWidth"
       borderRightWidth="1px"
       sx={customScrollbar}
     >
-      <NavTitle>Home</NavTitle>
       <NavLink to="/" icon={BiHome}>
         Dashboard
       </NavLink>
-      <NavTitle>Elements</NavTitle>
       <NavAccordion
         label="Components"
         icon={BiFolder}
         tooltipLabel="Coming Soon"
       >
         <NavLink to="/page1" icon={BiFile}>
-          Coming Soon 1
+          Component 1
         </NavLink>
         <NavLink to="/page2" icon={BiFile}>
-          Coming Soon 2
+          Component 2
         </NavLink>
         <NavLink to="/page3" icon={BiFile}>
-          Coming Soon 3
+          Component 3
         </NavLink>
         <NavLink to="/page4" icon={BiFile}>
-          Coming Soon 4
+          Component 4
         </NavLink>
       </NavAccordion>
-      <NavAccordion label="Pages" icon={BiFolder} tooltipLabel="Coming Soon">
+      <NavAccordion label="Pages" icon={BiFolder} tooltipLabel="Component">
         <NavLink to="/page1" icon={BiFile}>
           Nested Page 1
         </NavLink>
@@ -86,12 +88,22 @@ export const Navbar = () => {
           Nested Page 4
         </NavLink>
       </NavAccordion>
-      <NavTitle>Example</NavTitle>
       <NavLink to="/theme" tooltipLabel="Coming Soon">
         Theme
       </NavLink>
+      <NavLink to="/interfaces" tooltipLabel="Coming Soon">
+        Interfaces
+      </NavLink>
       <NavLink to="/examples" tooltipLabel="Coming Soon">
         Examples
+      </NavLink>
+      <Spacer />
+      <NavTitle>Add-ons</NavTitle>
+      <NavLink to="#" tooltipLabel="Admin Add-on">
+        Add-on 1
+      </NavLink>
+      <NavLink to="#" tooltipLabel="Admin Add-on">
+        Add-on 2
       </NavLink>
     </Flex>
   );
@@ -205,7 +217,7 @@ type NavTitleProps = {
 export const NavTitle = ({ children }: NavTitleProps) => {
   return (
     <Text
-      fontSize="xs"
+      fontSize="10"
       ml={4}
       mt={4}
       mb={1}

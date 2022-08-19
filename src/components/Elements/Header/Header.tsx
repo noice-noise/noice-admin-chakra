@@ -1,6 +1,8 @@
 import {
   Avatar,
+  Badge,
   Flex,
+  HStack,
   Icon,
   IconButton,
   Link as ExternalLink,
@@ -11,6 +13,7 @@ import {
   MenuItem,
   MenuList,
   Portal,
+  Spacer,
   Text,
 } from '@chakra-ui/react';
 import { BiBell } from 'react-icons/bi';
@@ -31,11 +34,23 @@ export const Header = () => {
       w="100vw"
       overflowY="auto"
       overflowX="hidden"
-      h={14}
+      h="headerHeight"
       justifyContent="flex-end"
       alignItems="center"
       borderBottomWidth="1px"
+      zIndex="header"
     >
+      <HStack as={Link} to="/" spacing={0}>
+        <Text as="span">Noice</Text>
+        <Text as="span" fontWeight="bold" fontSize="lg">
+          Admin
+        </Text>
+      </HStack>
+      <Badge colorScheme="brand" fontSize="xs" ml={1}>
+        v{process.env.REACT_APP_VERSION}
+      </Badge>
+      <Spacer />
+
       <IconButton
         as={ExternalLink}
         href="https://github.com/noice-noise/noice-admin-chakra"
@@ -129,6 +144,9 @@ export const Header = () => {
                 isExternal
               >
                 Feedback
+              </MenuItem>
+              <MenuItem as={Link} to="/about">
+                About
               </MenuItem>
             </MenuGroup>
           </MenuList>

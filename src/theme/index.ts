@@ -3,7 +3,7 @@ import {
   StyleFunctionProps,
   withDefaultColorScheme,
   withDefaultVariant,
-  type ThemeConfig,
+  type ThemeConfig
 } from '@chakra-ui/react';
 import { mode } from '@chakra-ui/theme-tools';
 
@@ -55,11 +55,11 @@ const theme = extendTheme(
           _dark: 'gray.900',
         },
         fgSecondary: {
-          default: 'blackAlpha.50',
+          default: 'gray.50',
           _dark: 'whiteAlpha.100',
         },
         fgTertiary: {
-          default: 'blackAlpha.200',
+          default: 'gray.100',
           _dark: 'whiteAlpha.50',
         },
         border: {
@@ -71,7 +71,7 @@ const theme = extendTheme(
           _dark: 'current',
         },
         hoverBg: {
-          default: 'blackAlpha.50',
+          default: 'gray.100',
           _dark: 'whiteAlpha.100',
         },
         activeColor: {
@@ -83,9 +83,21 @@ const theme = extendTheme(
           _dark: 'whiteAlpha.300',
         },
         scrollBg: {
-          default: 'blackAlpha.100',
+          default: 'gray.100',
           _dark: 'whiteAlpha.100',
         },
+      },
+      sizes: {
+        headerHeight: 14,
+        navbarWidth: 52,
+      },
+      space: {
+        headerHeight: 14,
+        navbarWidth: 52,
+      },
+      zIndices: {
+        header: 1,
+        navbar: 2,
       },
     },
   },

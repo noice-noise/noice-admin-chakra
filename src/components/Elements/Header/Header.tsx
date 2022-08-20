@@ -21,7 +21,10 @@ import { DiGithubBadge } from 'react-icons/di';
 import { Link } from 'react-router-dom';
 import { ThemeModeToggle } from '../ThemeModeToggle';
 
+import packageJson from '../../../../package.json';
+
 export const Header = () => {
+  console.log(packageJson);
   return (
     <Flex
       direction="row"
@@ -47,7 +50,7 @@ export const Header = () => {
         </Text>
       </HStack>
       <Badge colorScheme="brand" fontSize="xs" ml={1}>
-        v{process.env.REACT_APP_VERSION}
+        v{packageJson.version}
       </Badge>
       <Spacer />
 

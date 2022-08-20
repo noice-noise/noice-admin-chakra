@@ -22,6 +22,7 @@ import { Link } from 'react-router-dom';
 import { ThemeModeToggle } from '../ThemeModeToggle';
 
 import packageJson from '../../../../package.json';
+import { ContentBreadcrumb } from '../../../views/Dashboard';
 
 export const Header = () => {
   console.log(packageJson);
@@ -49,9 +50,11 @@ export const Header = () => {
           Admin
         </Text>
       </HStack>
-      <Badge colorScheme="brand" fontSize="xs" ml={1}>
+      <Badge colorScheme="brand" fontSize="xs" ml={1} mr={10}>
         v{packageJson.version}
       </Badge>
+
+      <ContentBreadcrumb />
       <Spacer />
 
       <IconButton

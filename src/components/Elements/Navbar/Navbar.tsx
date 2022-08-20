@@ -87,6 +87,34 @@ export const Navbar = () => {
         <NavLink to="/page4" icon={BiFile}>
           Nested Page 4
         </NavLink>
+        <NavAccordion label="Pages" icon={BiFolder} tooltipLabel="Component">
+          <NavLink to="/page1" icon={BiFile}>
+            Nested Page 1
+          </NavLink>
+          <NavLink to="/page2" icon={BiFile}>
+            Nested Page 2
+          </NavLink>
+          <NavLink to="/page3" icon={BiFile}>
+            Nested Page 3
+          </NavLink>
+          <NavAccordion label="Pages" icon={BiFolder} tooltipLabel="Component">
+            <NavLink to="/page1" icon={BiFile}>
+              Nested Page 1
+            </NavLink>
+            <NavLink to="/page2" icon={BiFile}>
+              Nested Page 2
+            </NavLink>
+            <NavLink to="/page3" icon={BiFile}>
+              Nested Page 3
+            </NavLink>
+            <NavLink to="/page4" icon={BiFile}>
+              Nested Page 4
+            </NavLink>
+          </NavAccordion>
+          <NavLink to="/page4" icon={BiFile}>
+            Nested Page 4
+          </NavLink>
+        </NavAccordion>
       </NavAccordion>
       <NavLink to="/theme" tooltipLabel="Coming Soon">
         Theme

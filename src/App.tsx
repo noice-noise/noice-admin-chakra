@@ -1,11 +1,14 @@
 import { AppProvider } from './providers/AppProvider';
+import { ThemeContextProvider } from './providers/ThemeContextProvider';
 import { AppRoutes } from './routes/AppRoutes';
 
 const App = () => {
   return (
-    <AppProvider>
-      <AppRoutes />
-    </AppProvider>
+    <ThemeContextProvider>
+      <AppProvider>
+        <AppRoutes />
+      </AppProvider>
+    </ThemeContextProvider>
   );
 };
 

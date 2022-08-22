@@ -1,4 +1,4 @@
-import { Box } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 
 type MainLayoutProps = {
   children: React.ReactNode;
@@ -6,14 +6,16 @@ type MainLayoutProps = {
 
 export const MainLayout = ({ children }: MainLayoutProps) => {
   return (
-    <Box
-      h="100vh"
-      w="100%"
-      px="navbarWidth"
-      pt="headerHeight"
-      borderWidth="2px"
+    <Flex
+      direction="column"
+      minH="100vh"
+      mt="headerHeight"
+      ml="navbarWidth"
+      px={3}
+      py={7}
+      gap={6}
     >
       {children}
-    </Box>
+    </Flex>
   );
 };

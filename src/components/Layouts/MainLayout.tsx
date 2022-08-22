@@ -10,7 +10,7 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
       direction="column"
       minH="100vh"
       mt="headerHeight"
-      ml="navbarWidth"
+      ml={{ base: 0, md: 'navbarWidth' }}
       px={3}
       py={7}
       gap={6}

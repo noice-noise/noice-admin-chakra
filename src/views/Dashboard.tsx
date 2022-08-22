@@ -1,7 +1,4 @@
 import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
   Button,
   Checkbox,
   Divider,
@@ -27,7 +24,6 @@ import {
   VStack,
 } from '@chakra-ui/react';
 import { IoIosNavigate } from 'react-icons/io';
-import { Link } from 'react-router-dom';
 import { MainLayout } from '../components/Layouts/MainLayout';
 
 export const Dashboard = () => {
@@ -400,27 +396,5 @@ export const ContentHeader = () => {
     <VStack spacing={0} justifyContent="start" alignItems="start">
       <Heading>Title</Heading>
     </VStack>
-  );
-};
-
-export const ContentBreadcrumb = () => {
-  return (
-    <Breadcrumb fontSize="sm">
-      <BreadcrumbItem>
-        <BreadcrumbLink as={Link} to="/" _hover={{ textDecoration: 'none' }}>
-          Home
-        </BreadcrumbLink>
-      </BreadcrumbItem>
-      <BreadcrumbItem>
-        <BreadcrumbLink as={Link} to="/" _hover={{ textDecoration: 'none' }}>
-          Overview
-        </BreadcrumbLink>
-      </BreadcrumbItem>
-      <BreadcrumbItem isCurrentPage>
-        <BreadcrumbLink _hover={{ textDecoration: 'none' }}>
-          Dashboard
-        </BreadcrumbLink>
-      </BreadcrumbItem>
-    </Breadcrumb>
   );
 };

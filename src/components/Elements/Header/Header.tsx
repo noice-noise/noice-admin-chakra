@@ -1,8 +1,6 @@
 import {
   Avatar,
-  Badge,
   Flex,
-  HStack,
   Icon,
   IconButton,
   Link as ExternalLink,
@@ -16,13 +14,11 @@ import {
   Spacer,
   Text,
 } from '@chakra-ui/react';
-import { BiBell } from 'react-icons/bi';
+import { BiBell, BiMenu } from 'react-icons/bi';
 import { DiGithubBadge } from 'react-icons/di';
 import { Link } from 'react-router-dom';
 import { ThemeModeToggle } from '../ThemeModeToggle';
-
-import packageJson from '../../../../package.json';
-import { ContentBreadcrumb } from '../../../views/Dashboard';
+import { RouteBreadcrumb } from './RouteBreadcrumb';
 
 export const Header = () => {
   return (
@@ -30,32 +26,32 @@ export const Header = () => {
       direction="row"
       position="fixed"
       bg="foreground"
-      px={5}
+      w="100%"
       m={0}
+      pr={{ base: 0, md: 5 }}
+      pl={{ base: 0, md: 'navbarWidth' }}
+      px={{ base: 3 }}
       top={0}
       left={0}
-      w="100vw"
       overflowY="auto"
       overflowX="hidden"
       h="headerHeight"
-      justifyContent="flex-end"
+      overflow="hidden"
+      justifyContent={{ base: 'flex-start', md: 'space-between' }}
       alignItems="center"
-      borderBottomWidth="1px"
       zIndex="header"
     >
-      <HStack as={Link} to="/" spacing={0}>
-        <Text as="span">Noice</Text>
-        <Text as="span" fontWeight="bold" fontSize="lg">
-          Admin
-        </Text>
-      </HStack>
-      <Badge colorScheme="brand" fontSize="xs" ml={1} mr={10}>
-        v{packageJson.version}
-      </Badge>
-
-      <ContentBreadcrumb />
+      <RouteBreadcrumb />
+      {/* // TODO Implement Navbar Menu Button */}
+      <IconButton
+        aria-label="Open Navbar"
+        color="current"
+        rounded="full"
+        icon={<Icon boxSize="2rem" as={BiMenu} />}
+        visibility={{ base: 'visible', md: 'hidden' }}
+        display={{ base: 'flex', md: 'none' }}
+      />
       <Spacer />
-
       <IconButton
         as={ExternalLink}
         href="https://github.com/noice-noise/noice-admin-chakra"
@@ -65,9 +61,7 @@ export const Header = () => {
         rounded="full"
         icon={<Icon boxSize="2rem" as={DiGithubBadge} />}
       />
-
       <ThemeModeToggle />
-
       <Menu strategy="absolute">
         <MenuButton
           as={IconButton}
@@ -77,7 +71,7 @@ export const Header = () => {
           icon={<Icon boxSize="1.5rem" as={BiBell} />}
         ></MenuButton>
         <Portal>
-          <MenuList fontSize="sm" minW={80}>
+          <MenuList fontSize="sm" minW={80} shadow="lg">
             <MenuItem>
               <Flex direction="column" alignItems="start" maxW={80}>
                 <Text fontWeight="bold">Patrek</Text>
@@ -113,13 +107,12 @@ export const Header = () => {
           </MenuList>
         </Portal>
       </Menu>
-
       <Menu>
         <MenuButton ml={4}>
-          <Avatar name="Admin" boxSize="2.5rem" rounded="full" src="#" />
+          <Avatar name="Admin" boxSize="2rem" rounded="full" src="#" />
         </MenuButton>
         <Portal>
-          <MenuList fontSize="sm" minW={40} w={20}>
+          <MenuList fontSize="sm" minW={40} w={20} shadow="lg">
             <MenuGroup fontSize="sm" title="Profile">
               <MenuItem as={Link} to="/account">
                 My Account

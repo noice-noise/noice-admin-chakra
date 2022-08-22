@@ -4,9 +4,11 @@ import {
   AccordionIcon,
   AccordionItem,
   AccordionPanel,
+  Badge,
   Box,
   Button,
   Flex,
+  HStack,
   Icon,
   Spacer,
   Text,
@@ -16,6 +18,7 @@ import { useEffect, useState } from 'react';
 import { IconType } from 'react-icons';
 import { BiFile, BiFolder, BiHome } from 'react-icons/bi';
 import { Link, LinkProps, useLocation } from 'react-router-dom';
+import packageJson from '../../../../package.json';
 
 // TODO refactor nav item props for reusability
 
@@ -36,23 +39,32 @@ export const Navbar = () => {
 
   return (
     <Flex
+      visibility={{ base: 'hidden', md: 'visible' }}
+      display={{ base: 'none', md: 'flex' }}
       direction="column"
       position="fixed"
       bg="foreground"
       m={0}
       p={0}
-      mt="headerHeight"
-      pb="headerHeight" // need to because of top margin, to allow accurate overflowY boundary
-      top={-1.3}
+      pb={10}
+      top={0}
       left={0}
       zIndex="navbar"
       h="100%"
       overflowY="auto"
       overflowX="hidden"
       w="navbarWidth"
-      borderRightWidth="1px"
       sx={customScrollbar}
     >
+      <HStack as={Link} to="/" spacing={0} minH="headerHeight" ml={5}>
+        <Text as="span">Noice</Text>
+        <Text as="span" fontWeight="bold" fontSize="lg">
+          Admin
+        </Text>
+        <Badge colorScheme="brand" fontSize="xs">
+          v{packageJson.version}
+        </Badge>
+      </HStack>
       <NavLink to="/" icon={BiHome}>
         Dashboard
       </NavLink>
@@ -207,7 +219,6 @@ export const NavAccordion = ({
         <NavTooltip label={tooltipLabel} hideTooltip={hideTooltip}>
           <AccordionButton
             as={Button}
-            _expanded={{ bg: 'fgSecondary' }}
             color="current"
             variant="ghost"
             justifyContent="start"
@@ -218,6 +229,7 @@ export const NavAccordion = ({
             rounded="none"
             size="sm"
             _hover={{ bg: 'hoverBg' }}
+            _expanded={{ bg: 'fgSecondary', shadow: 'md' }}
             borderWidth={0}
             borderLeftWidth={4}
             borderLeftColor="transparent"

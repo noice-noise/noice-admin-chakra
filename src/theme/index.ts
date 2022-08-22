@@ -3,7 +3,7 @@ import {
   StyleFunctionProps,
   withDefaultColorScheme,
   withDefaultVariant,
-  type ThemeConfig
+  type ThemeConfig,
 } from '@chakra-ui/react';
 import { mode } from '@chakra-ui/theme-tools';
 
@@ -83,7 +83,7 @@ const theme = extendTheme(
           _dark: 'whiteAlpha.300',
         },
         scrollBg: {
-          default: 'gray.100',
+          default: 'gray.200',
           _dark: 'whiteAlpha.100',
         },
       },

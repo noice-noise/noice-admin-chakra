@@ -25,7 +25,6 @@ import packageJson from '../../../../package.json';
 import { ContentBreadcrumb } from '../../../views/Dashboard';
 
 export const Header = () => {
-  console.log(packageJson);
   return (
     <Flex
       direction="row"
@@ -70,14 +69,13 @@ export const Header = () => {
       <ThemeModeToggle />
 
       <Menu strategy="absolute">
-        <MenuButton>
-          <IconButton
-            aria-label="Open notifications"
-            color="current"
-            rounded="full"
-            icon={<Icon boxSize="1.5rem" as={BiBell} />}
-          />
-        </MenuButton>
+        <MenuButton
+          as={IconButton}
+          aria-label="Open notifications"
+          color="current"
+          rounded="full"
+          icon={<Icon boxSize="1.5rem" as={BiBell} />}
+        ></MenuButton>
         <Portal>
           <MenuList fontSize="sm" minW={80}>
             <MenuItem>
@@ -118,12 +116,7 @@ export const Header = () => {
 
       <Menu>
         <MenuButton ml={4}>
-          <Avatar
-            name="User"
-            boxSize="2.5rem"
-            rounded="full"
-            src="https://bit.ly/broken-link"
-          />
+          <Avatar name="Admin" boxSize="2.5rem" rounded="full" src="#" />
         </MenuButton>
         <Portal>
           <MenuList fontSize="sm" minW={40} w={20}>

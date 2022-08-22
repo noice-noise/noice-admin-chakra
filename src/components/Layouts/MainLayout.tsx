@@ -11,6 +11,7 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
       minH="100vh"
       mt="headerHeight"
       ml={{ base: 0, md: 'navbarWidth' }}
+      w={{ base: '100%', md: 'auto' }}
       px={3}
       py={7}
       gap={6}

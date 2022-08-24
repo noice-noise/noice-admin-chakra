@@ -1,5 +1,6 @@
 import {
   Avatar,
+  Box,
   Flex,
   Icon,
   IconButton,
@@ -24,25 +25,18 @@ export const Header = () => {
   return (
     <Flex
       direction="row"
-      position="fixed"
-      bg="foreground"
       w="100%"
       m={0}
-      pr={{ base: 0, md: 5 }}
-      pl={{ base: 0, md: 'navbarWidth' }}
-      px={{ base: 3 }}
+      h="headerHeight"
+      alignItems="center"
+      justifyContent={{ base: 'flex-start', md: 'space-between' }}
+      position={{ base: 'fixed', md: 'unset' }}
       top={0}
       left={0}
-      overflowY="auto"
-      overflowX="hidden"
-      h="headerHeight"
-      overflow="hidden"
-      justifyContent={{ base: 'flex-start', md: 'space-between' }}
-      alignItems="center"
-      zIndex="header"
+      px={{ base: 5, md: 0 }}
+      zIndex={{ base: 4, md: 0 }}
+      bg={{ base: 'foreground', md: 'transparent' }}
     >
-      <RouteBreadcrumb />
-      {/* // TODO Implement Navbar Menu Button */}
       <IconButton
         aria-label="Open Navbar"
         color="current"
@@ -51,6 +45,11 @@ export const Header = () => {
         visibility={{ base: 'visible', md: 'hidden' }}
         display={{ base: 'flex', md: 'none' }}
       />
+      <RouteBreadcrumb
+        visibility={{ base: 'hidden', md: 'visible' }}
+        display={{ base: 'none', md: 'flex' }}
+      />
+      {/* // TODO Implement Navbar Menu Button */}
       <Spacer />
 
       <IconButton
@@ -147,4 +146,8 @@ export const Header = () => {
       </Menu>
     </Flex>
   );
+};
+
+export const HeaderSpacer = ({ ...props }) => {
+  return <Box w="full" h="headerHeight" {...props}></Box>;
 };

@@ -21,15 +21,15 @@ import {
   Th,
   Thead,
   Tr,
-  VStack,
 } from '@chakra-ui/react';
 import { IoIosNavigate } from 'react-icons/io';
+import { ContentHeader } from '../components/Elements/Content/ContentHeader';
 import { MainLayout } from '../components/Layouts/MainLayout';
 
 export const Dashboard = () => {
   return (
     <MainLayout>
-      <ContentHeader />
+      <ContentHeader title="Dashboard" />
 
       <SimpleGrid columns={{ base: 1, md: 2, xl: 4 }} spacing={3}>
         <Stat
@@ -388,13 +388,5 @@ export const Dashboard = () => {
         </Table>
       </TableContainer>
     </MainLayout>
-  );
-};
-
-export const ContentHeader = () => {
-  return (
-    <VStack spacing={0} justifyContent="start" alignItems="start">
-      <Heading>Title</Heading>
-    </VStack>
   );
 };

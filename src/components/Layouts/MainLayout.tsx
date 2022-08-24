@@ -12,7 +12,7 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
       mt="headerHeight"
       ml={{ base: 0, md: 'navbarWidth' }}
       w={{ base: '100%', md: 'auto' }}
-      px={3}
+      px={{ base: 5, md: 10 }}
       py={7}
       gap={6}
     >

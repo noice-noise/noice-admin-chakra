@@ -1,7 +1,6 @@
 import { ChakraProvider } from '@chakra-ui/react';
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { Navbar } from '../components/Elements/Navbar/Navbar';
 import { ThemeContext, ThemeContextType } from './ThemeContextProvider';
 
 type AppProviderProps = {
@@ -11,16 +10,9 @@ type AppProviderProps = {
 export const AppProvider = ({ children }: AppProviderProps) => {
   const { currentTheme } = useContext<ThemeContextType>(ThemeContext);
 
-  useEffect(() => {
-    console.log('render request');
-  }, [currentTheme]);
-
   return (
     <Router>
-      <ChakraProvider theme={currentTheme.value}>
-        <Navbar />
-        {children}
-      </ChakraProvider>
+      <ChakraProvider theme={currentTheme.value}>{children}</ChakraProvider>
     </Router>
   );
 };

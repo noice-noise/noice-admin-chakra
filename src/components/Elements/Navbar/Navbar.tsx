@@ -7,6 +7,10 @@ import {
   Badge,
   Box,
   Button,
+  Drawer,
+  DrawerContent,
+  DrawerOverlay,
+  DrawerProps,
   Flex,
   HStack,
   Icon,
@@ -21,26 +25,49 @@ import { Link, LinkProps, useLocation } from 'react-router-dom';
 import packageJson from '../../../../package.json';
 
 // TODO refactor nav item props for reusability
+type NavbarProps = Omit<DrawerProps, 'children'>;
 
-export const Navbar = () => {
+export const customScrollbar = {
+  '&::-webkit-scrollbar': {
+    width: '4px',
+  },
+  '&::-webkit-scrollbar-track': {
+    width: '6px',
+  },
+  '&::-webkit-scrollbar-thumb': {
+    backgroundColor: 'scrollBg',
+    borderRadius: '24px',
+  },
+};
+
+export const Navbar = ({ onClose, isOpen }: NavbarProps) => {
   // TODO refactor custom scrollbar
-  const customScrollbar = {
-    '&::-webkit-scrollbar': {
-      width: '4px',
-    },
-    '&::-webkit-scrollbar-track': {
-      width: '6px',
-    },
-    '&::-webkit-scrollbar-thumb': {
-      backgroundColor: 'scrollBg',
-      borderRadius: '24px',
-    },
-  };
 
   return (
+    <Box
+      bg="gray.50"
+      _dark={{
+        bg: 'gray.700',
+      }}
+      minH="100vh"
+    >
+      <NavbarContent
+        visibility={{ base: 'hidden', md: 'visible' }}
+        display={{ base: 'none', md: 'flex' }}
+      />
+      <Drawer placement="left" onClose={onClose} isOpen={isOpen}>
+        <DrawerOverlay />
+        <DrawerContent maxW="navbarWidth">
+          <NavbarContent />
+        </DrawerContent>
+      </Drawer>
+    </Box>
+  );
+};
+
+export const NavbarContent = ({ ...props }) => {
+  return (
     <Flex
-      visibility={{ base: 'hidden', md: 'visible' }}
-      display={{ base: 'none', md: 'flex' }}
       direction="column"
       position="fixed"
       bg="foreground"
@@ -55,6 +82,7 @@ export const Navbar = () => {
       overflowX="hidden"
       w="navbarWidth"
       sx={customScrollbar}
+      {...props}
     >
       <HStack as={Link} to="/" spacing={0} minH="headerHeight" ml={5}>
         <Text as="span">Noice</Text>

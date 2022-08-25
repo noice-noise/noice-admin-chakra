@@ -14,10 +14,12 @@ import {
   Portal,
   Spacer,
   Text,
+  useDisclosure,
 } from '@chakra-ui/react';
 import { BiBell, BiMenu } from 'react-icons/bi';
 import { DiGithubBadge } from 'react-icons/di';
 import { Link } from 'react-router-dom';
+import { Navbar } from '../Navbar/Navbar';
 import { ThemeModeToggle } from '../ThemeModeToggle';
 
 type HeaderProps = {
@@ -25,6 +27,8 @@ type HeaderProps = {
 };
 
 export const Header = ({ routeBreadCrumb }: HeaderProps) => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   return (
     <Flex
       direction="row"
@@ -47,8 +51,10 @@ export const Header = ({ routeBreadCrumb }: HeaderProps) => {
         icon={<Icon boxSize="2rem" as={BiMenu} />}
         visibility={{ base: 'visible', md: 'hidden' }}
         display={{ base: 'flex', md: 'none' }}
+        onClick={onOpen}
       />
       {routeBreadCrumb}
+      <Navbar onClose={onClose} isOpen={isOpen} />
       <Spacer />
       <IconButton
         as={ExternalLink}

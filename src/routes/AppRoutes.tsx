@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
+import { BlankPage } from '../views/BlankPage';
 import { Dashboard } from '../views/Dashboard';
 import { Settings } from '../views/Settings';
 
@@ -10,6 +11,7 @@ export const AppRoutes = () => {
     <Routes>
       <Route path="/" element={<Dashboard />} />
       <Route path="/settings" element={<Settings />} />
+      <Route path="/blank-page" element={<BlankPage />} />
     </Routes>
   );
 };

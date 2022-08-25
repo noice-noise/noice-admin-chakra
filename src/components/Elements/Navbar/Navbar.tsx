@@ -19,7 +19,7 @@ import {
 } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { IconType } from 'react-icons';
-import { BiCog, BiHome } from 'react-icons/bi';
+import { BiCog, BiFileBlank, BiHome } from 'react-icons/bi';
 import { Link, LinkProps, useLocation } from 'react-router-dom';
 import packageJson from '../../../../package.json';
 
@@ -94,6 +94,9 @@ export const NavbarContent = ({ ...props }) => {
       </HStack>
       <NavLink to="/" icon={BiHome}>
         Dashboard
+      </NavLink>
+      <NavLink to="/blank-page" icon={BiFileBlank}>
+        Blank Page
       </NavLink>
       <NavLink to="/settings" icon={BiCog}>
         Settings

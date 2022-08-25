@@ -1,5 +1,6 @@
 import {
   Avatar,
+  Box,
   Flex,
   Icon,
   IconButton,
@@ -13,36 +14,36 @@ import {
   Portal,
   Spacer,
   Text,
+  useDisclosure,
 } from '@chakra-ui/react';
 import { BiBell, BiMenu } from 'react-icons/bi';
 import { DiGithubBadge } from 'react-icons/di';
 import { Link } from 'react-router-dom';
+import { Navbar } from '../Navbar/Navbar';
 import { ThemeModeToggle } from '../ThemeModeToggle';
-import { RouteBreadcrumb } from './RouteBreadcrumb';
 
-export const Header = () => {
+type HeaderProps = {
+  routeBreadCrumb?: React.ReactNode;
+};
+
+export const Header = ({ routeBreadCrumb }: HeaderProps) => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   return (
     <Flex
       direction="row"
-      position="fixed"
-      bg="foreground"
       w="100%"
       m={0}
-      pr={{ base: 0, md: 5 }}
-      pl={{ base: 0, md: 'navbarWidth' }}
-      px={{ base: 3 }}
+      h="headerHeight"
+      alignItems="center"
+      justifyContent={{ base: 'flex-start', md: 'space-between' }}
+      position={{ base: 'fixed', md: 'unset' }}
       top={0}
       left={0}
-      overflowY="auto"
-      overflowX="hidden"
-      h="headerHeight"
-      overflow="hidden"
-      justifyContent={{ base: 'flex-start', md: 'space-between' }}
-      alignItems="center"
-      zIndex="header"
+      px={{ base: 5, md: 0 }}
+      zIndex={{ base: 4, md: 0 }}
+      bg={{ base: 'foreground', md: 'transparent' }}
     >
-      <RouteBreadcrumb />
-      {/* // TODO Implement Navbar Menu Button */}
       <IconButton
         aria-label="Open Navbar"
         color="current"
@@ -50,9 +51,11 @@ export const Header = () => {
         icon={<Icon boxSize="2rem" as={BiMenu} />}
         visibility={{ base: 'visible', md: 'hidden' }}
         display={{ base: 'flex', md: 'none' }}
+        onClick={onOpen}
       />
+      {routeBreadCrumb}
+      <Navbar onClose={onClose} isOpen={isOpen} />
       <Spacer />
-
       <IconButton
         as={ExternalLink}
         href="https://github.com/noice-noise/noice-admin-chakra"
@@ -147,4 +150,8 @@ export const Header = () => {
       </Menu>
     </Flex>
   );
+};
+
+export const HeaderSpacer = ({ ...props }) => {
+  return <Box w="full" h="headerHeight" {...props}></Box>;
 };

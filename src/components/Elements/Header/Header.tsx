@@ -19,9 +19,12 @@ import { BiBell, BiMenu } from 'react-icons/bi';
 import { DiGithubBadge } from 'react-icons/di';
 import { Link } from 'react-router-dom';
 import { ThemeModeToggle } from '../ThemeModeToggle';
-import { RouteBreadcrumb } from './RouteBreadcrumb';
 
-export const Header = () => {
+type HeaderProps = {
+  routeBreadCrumb?: React.ReactNode;
+};
+
+export const Header = ({ routeBreadCrumb }: HeaderProps) => {
   return (
     <Flex
       direction="row"
@@ -45,13 +48,8 @@ export const Header = () => {
         visibility={{ base: 'visible', md: 'hidden' }}
         display={{ base: 'flex', md: 'none' }}
       />
-      <RouteBreadcrumb
-        visibility={{ base: 'hidden', md: 'visible' }}
-        display={{ base: 'none', md: 'flex' }}
-      />
-      {/* // TODO Implement Navbar Menu Button */}
+      {routeBreadCrumb}
       <Spacer />
-
       <IconButton
         as={ExternalLink}
         href="https://github.com/noice-noise/noice-admin-chakra"

@@ -19,7 +19,7 @@ export const Settings = () => {
   };
 
   return (
-    <MainLayout>
+    <MainLayout title="Settings">
       <ContentHeader title="Settings" />
       <Select placeholder="Select Theme" onChange={handleChange}>
         <option value={0}>{availableThemes[0].name}</option>

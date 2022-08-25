@@ -28,7 +28,7 @@ import { MainLayout } from '../components/Layouts/MainLayout';
 
 export const Dashboard = () => {
   return (
-    <MainLayout>
+    <MainLayout title="Dashboard">
       <ContentHeader title="Dashboard" />
 
       <SimpleGrid columns={{ base: 1, md: 2, xl: 4 }} spacing={3}>

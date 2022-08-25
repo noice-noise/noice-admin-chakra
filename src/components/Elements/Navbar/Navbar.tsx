@@ -14,13 +14,12 @@ import {
   Flex,
   HStack,
   Icon,
-  Spacer,
   Text,
   Tooltip,
 } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { IconType } from 'react-icons';
-import { BiFile, BiFolder, BiHome } from 'react-icons/bi';
+import { BiCog, BiHome } from 'react-icons/bi';
 import { Link, LinkProps, useLocation } from 'react-router-dom';
 import packageJson from '../../../../package.json';
 
@@ -96,82 +95,8 @@ export const NavbarContent = ({ ...props }) => {
       <NavLink to="/" icon={BiHome}>
         Dashboard
       </NavLink>
-      <NavAccordion
-        label="Components"
-        icon={BiFolder}
-        tooltipLabel="Coming Soon"
-      >
-        <NavLink to="/page1" icon={BiFile}>
-          Component 1
-        </NavLink>
-        <NavLink to="/page2" icon={BiFile}>
-          Component 2
-        </NavLink>
-        <NavLink to="/page3" icon={BiFile}>
-          Component 3
-        </NavLink>
-        <NavLink to="/page4" icon={BiFile}>
-          Component 4
-        </NavLink>
-      </NavAccordion>
-      <NavAccordion label="Pages" icon={BiFolder} tooltipLabel="Component">
-        <NavLink to="/page1" icon={BiFile}>
-          Nested Page 1
-        </NavLink>
-        <NavLink to="/page2" icon={BiFile}>
-          Nested Page 2
-        </NavLink>
-        <NavLink to="/page3" icon={BiFile}>
-          Nested Page 3
-        </NavLink>
-        <NavLink to="/page4" icon={BiFile}>
-          Nested Page 4
-        </NavLink>
-        <NavAccordion label="Pages" icon={BiFolder} tooltipLabel="Component">
-          <NavLink to="/page1" icon={BiFile}>
-            Nested Page 1
-          </NavLink>
-          <NavLink to="/page2" icon={BiFile}>
-            Nested Page 2
-          </NavLink>
-          <NavLink to="/page3" icon={BiFile}>
-            Nested Page 3
-          </NavLink>
-          <NavAccordion label="Pages" icon={BiFolder} tooltipLabel="Component">
-            <NavLink to="/page1" icon={BiFile}>
-              Nested Page 1
-            </NavLink>
-            <NavLink to="/page2" icon={BiFile}>
-              Nested Page 2
-            </NavLink>
-            <NavLink to="/page3" icon={BiFile}>
-              Nested Page 3
-            </NavLink>
-            <NavLink to="/page4" icon={BiFile}>
-              Nested Page 4
-            </NavLink>
-          </NavAccordion>
-          <NavLink to="/page4" icon={BiFile}>
-            Nested Page 4
-          </NavLink>
-        </NavAccordion>
-      </NavAccordion>
-      <NavLink to="/theme" tooltipLabel="Coming Soon">
-        Theme
-      </NavLink>
-      <NavLink to="/interfaces" tooltipLabel="Coming Soon">
-        Interfaces
-      </NavLink>
-      <NavLink to="/examples" tooltipLabel="Coming Soon">
-        Examples
-      </NavLink>
-      <Spacer />
-      <NavTitle>Add-ons</NavTitle>
-      <NavLink to="#" tooltipLabel="Admin Add-on">
-        Add-on 1
-      </NavLink>
-      <NavLink to="#" tooltipLabel="Admin Add-on">
-        Add-on 2
+      <NavLink to="/settings" icon={BiCog}>
+        Settings
       </NavLink>
     </Flex>
   );

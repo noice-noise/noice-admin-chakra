@@ -118,7 +118,7 @@ export const Header = ({ routeBreadCrumb }: HeaderProps) => {
         <Portal>
           <MenuList fontSize="sm" minW={40} w={20} shadow="lg">
             <MenuGroup fontSize="sm" title="Profile">
-              <MenuItem as={Link} to="/account">
+              <MenuItem as={Link} to="#">
                 My Account
               </MenuItem>
               <MenuItem as={Link} to="/settings">

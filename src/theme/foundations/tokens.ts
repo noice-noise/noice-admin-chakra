@@ -32,9 +32,13 @@ export const semanticTokens = {
       default: 'brand.100',
       _dark: 'whiteAlpha.300',
     },
-    scrollBg: {
+    scrollTrack: {
+      default: 'white',
+      _dark: 'gray.900',
+    },
+    scrollThumb: {
       default: 'gray.200',
-      _dark: 'whiteAlpha.100',
+      _dark: 'whiteAlpha.500',
     },
   },
   sizes: {

@@ -10,7 +10,7 @@ import { styles } from '../styles';
 export const corporate = extendTheme(
   { config },
   {
-    ...styles,
+    styles,
     fonts,
     semanticTokens,
     colors: {

@@ -10,7 +10,7 @@ import { styles } from './styles';
 export const defaultTheme = extendTheme(
   { config },
   {
-    ...styles,
+    styles,
     fonts,
     semanticTokens,
     colors: {
